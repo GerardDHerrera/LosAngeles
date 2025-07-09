@@ -1,0 +1,204 @@
+/* Importación de fuentes de Google Fonts para un diseño moderno */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Playfair+Display:wght@700&display=swap');
+
+:root {
+    /* Definición de variables CSS para colores */
+    --color-primary: #8e44ad; /* Morado llamativo */
+    --color-secondary: #3498db; /* Azul vibrante */
+    --color-text-light: #ecf0f1; /* Gris muy claro para texto */
+    --color-text-dark: #2c3e50; /* Azul oscuro para texto */
+    --color-bg-light: #f4f7f6; /* Fondo casi blanco */
+    --color-bg-dark: #34495e; /* Fondo gris oscuro */
+    --color-card-bg: #ffffff; /* Fondo de tarjeta blanco */
+    --color-card-border: #ddd; /* Borde de tarjeta gris claro */
+}
+
+/* Estilos Generales */
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-bg-light);
+    color: var(--color-text-dark);
+    line-height: 1.6;
+    overflow-x: hidden; /* Evita scroll horizontal en móviles */
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif; /* Fuente elegante para títulos */
+    color: var(--color-text-dark);
+    margin-bottom: 0.5em;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-secondary);
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Sección de Banner (Portada llamativa) */
+.hero {
+    position: relative;
+    width: 100%;
+    height: 60vh; /* 60% de la altura de la ventana */
+    background-image: url('Imagenes/Portada.jpg'); /* La foto de tu portada */
+    background-size: cover; /* Cubre todo el área */
+    background-position: center center; /* Centra la imagen */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--color-text-light); /* Texto claro sobre la imagen */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.hero-content {
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente para el texto */
+    padding: 2em;
+    border-radius: 10px;
+    max-width: 80%;
+}
+
+/* Nuevos estilos para los títulos del banner */
+.hero h1 {
+    font-size: 4.5em; /* Tamaño grande para el título principal */
+    margin-bottom: 0.1em; /* Menos espacio entre títulos */
+    color: var(--color-text-light);
+    line-height: 1.1; /* Ajusta la altura de línea */
+}
+
+.hero h2 {
+    font-size: 2em; /* Tamaño mediano para el subtítulo */
+    margin-top: 0.1em;
+    margin-bottom: 0.5em;
+    color: var(--color-text-light);
+    font-family: 'Montserrat', sans-serif; /* Usamos Montserrat para este subtítulo */
+    font-weight: 400; /* Peso normal */
+}
+
+.hero p.subtitle-small { /* Usamos la clase para el párrafo más chico */
+    font-size: 1.1em; /* Tamaño de fuente más chico */
+    color: var(--color-text-light);
+    font-weight: 300; /* Peso más ligero */
+}
+
+
+/* Contenedor de la Cuadrícula de Álbumes */
+.album-grid-container {
+    padding: 2em 1em; /* Espaciado interno */
+    max-width: 1200px; /* Ancho máximo para el contenido */
+    margin: 2em auto; /* Centrar el contenedor */
+}
+
+.album-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
+    gap: 2em; /* Espacio entre las tarjetas */
+    justify-content: center;
+    align-items: stretch; /* Asegura que las tarjetas tengan la misma altura si el contenido varía */
+}
+
+/* Estilo de cada Tarjeta de Álbum */
+.album-card {
+    background-color: var(--color-card-bg);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden; /* Esconde el contenido que se sale de las esquinas redondeadas */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave al pasar el ratón */
+    display: flex;
+    flex-direction: column; /* Organiza la imagen y el contenido en columna */
+    cursor: pointer; /* Indica que es clickeable */
+    color: inherit; /* Hereda el color de texto del body para que no sea azul por defecto del <a> */
+}
+
+.album-card:hover {
+    transform: translateY(-5px); /* Efecto de levantar al pasar el ratón */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.album-card img {
+    width: 100%;
+    height: 200px; /* Altura fija para las imágenes de miniatura */
+    object-fit: cover; /* Recorta la imagen para que cubra el espacio sin distorsionarse */
+    display: block; /* Elimina espacio extra debajo de la imagen */
+}
+
+.card-content {
+    padding: 1.5em;
+    flex-grow: 1; /* Permite que el contenido ocupe el espacio restante */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Empuja el botón al final si hay espacio */
+}
+
+.card-content h3 {
+    color: var(--color-primary); /* Color del título de la tarjeta */
+    margin-top: 0;
+    margin-bottom: 0.5em;
+    font-size: 1.4em;
+}
+
+.card-content p {
+    font-family: 'Montserrat', sans-serif; /* Asegura que el párrafo use Montserrat */
+    font-size: 0.95em;
+    color: var(--color-text-dark);
+    margin-bottom: 1em;
+    flex-grow: 1; /* Permite que el párrafo crezca si es necesario */
+}
+
+.view-album-btn { /* Estilo del botón "Ver Álbum" */
+    display: inline-block;
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    padding: 0.8em 1.5em;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    transition: background-color 0.3s ease;
+    align-self: flex-start; /* Alinea el botón al inicio de su contenedor */
+}
+
+.album-card:hover .view-album-btn { /* Cambio de color del botón al hacer hover en la tarjeta */
+    background-color: #2980b9; /* Color más oscuro al pasar el ratón */
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 2em 1em;
+    background-color: var(--color-bg-dark);
+    color: var(--color-text-light);
+    font-size: 0.9em;
+    margin-top: 3em;
+}
+
+/* Responsividad para móviles */
+@media (max-width: 768px) {
+    .hero {
+        height: 45vh; /* Un poco más alto en móviles para el texto */
+    }
+
+    .hero h1 {
+        font-size: 2.8em; /* Título principal más pequeño */
+    }
+
+    .hero h2 {
+        font-size: 1.5em; /* Subtítulo mediano más pequeño */
+    }
+
+    .hero p.subtitle-small {
+        font-size: 0.9em; /* Descripción más chica */
+    }
+
+    .album-grid-container {
+        padding: 1em; /* Menos padding en móviles */
+    }
+
+    .album-grid {
+        grid-template-columns: 1fr; /* Una sola columna en móviles */
+        gap: 1.5em; /* Menos espacio entre tarjetas */
+    }
+}
